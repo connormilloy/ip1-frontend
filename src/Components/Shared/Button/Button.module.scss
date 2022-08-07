@@ -1,4 +1,14 @@
 .button {
-  padding: 1rem;
+  padding: .5rem;
   width: 125px;
+}
+
+.loginButton,
+.loginButton:focus {
+  background: #13C290!important;
+  border: #13C290!important;
+}
+
+.loginButton:hover {
+  background: black!important;
 }

@@ -1,10 +1,10 @@
-import LoginUI from "./Components/Login/LoginUI";
+import Login from "./Components/Login/Login";
 import './App.scss';
 
 function App() {
   return (
     <div className="App">
-        <LoginUI />
+        <Login />
     </div>
   );
 }

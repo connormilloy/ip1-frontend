@@ -1,0 +1,49 @@
+$emerald-green: #13C290;
+
+.loginUI{ 
+    padding: 2rem;
+    border-radius: 25px;
+    background: white;
+    -webkit-box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35); 
+    box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35);
+}
+
+.loginButton {
+    background: #13C290!important;
+}
+
+.inputBoxes {
+    margin-bottom: 2rem;
+}
+
+.bottomUI {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linksWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.forgotPassword,
+.registerAccount,
+.forgotPassword:hover,
+.registerAccount:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.forgotPassword:hover {
+    color: $emerald-green;
+}
+
+.registerAccount:hover {
+    text-decoration: underline;
+}
+
+.registerAccount {
+    font-weight: bold;
+}
