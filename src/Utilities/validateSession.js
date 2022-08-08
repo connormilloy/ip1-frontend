@@ -5,6 +5,7 @@ const purgeSessionData = () => {
     setLocalStorage('email', '');
     setLocalStorage('token', '');
     setLocalStorage('userID', '');
+    setLocalStorage('accountLevel');
 }
 
 export const validateSession = () => {
@@ -35,4 +36,15 @@ export const handleLogout = () => {
         purgeSessionData();
         resolve();
     })
+}
+
+export const returnSessionInfo = () => {
+    const info = {
+        "email": getLocalStorage('email'),
+        "token": getLocalStorage('token'),
+        "userID": getLocalStorage('userID'),
+        "accountLevel": getLocalStorage('accountLevel')
+    }
+
+    return info;
 }

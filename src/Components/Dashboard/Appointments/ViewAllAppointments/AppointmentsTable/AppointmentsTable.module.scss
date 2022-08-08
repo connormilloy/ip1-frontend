@@ -1,0 +1,26 @@
+.appointmentsTableWrapper {
+    padding: 1rem;
+}
+
+.appointmentsTable {
+    width: 50%;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.appointmentsTable th, .appointmentsTable td {
+    padding: 10px;
+}
+
+.appointmentsTable tr {
+    border: 2px solid black;
+}
+
+.appointmentsTable tbody tr:hover {
+    background: #ebebeb;
+}
+
+.appointmentsButtons {
+    margin-bottom: 2rem;
+}

@@ -29,6 +29,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
                     setLocalStorage('email', loginInfo.email);
                     setLocalStorage('token', res.data.token);
                     setLocalStorage('userID', res.data.userID);
+                    setLocalStorage('accountLevel', res.data.accountLevel);
                     navigate('/');
                 }
             })
@@ -54,7 +55,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
             <div className={styles.bottomUI}>
                 <Button
                     text={"Login"}
-                    className={"loginButton"}
+                    className={"greenButton"}
                     onClick={attemptLogin}
                 />
                 <div className={styles.linksWrapper}>

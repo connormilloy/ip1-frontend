@@ -1,0 +1,15 @@
+.statusLozenge {
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+}
+
+.completedLozenge {
+    background: gray;
+}
+
+.upcomingLozenge {
+    background: #16C290;
+}
