@@ -1,8 +1,10 @@
 @import "./node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
 $off-white: #e9e9e9;
 
 html, body, #root, .App {
   height: 100%;
   background-color: $off-white;
+  font-family: 'Roboto', 'sans-serif';
 }

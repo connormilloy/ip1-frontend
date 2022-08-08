@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.headerLeft {
+    margin-right: 2.5rem;
+}
+
+.headerRight {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loytechLogo {
+    width: 175px;
+}
+
+.appName {
+    font-family: 'Roboto Slab', 'serif';
+    font-size: 2.75rem;
+}
+
+.moduleDescription {
+    font-family: 'Roboto', 'sans-serif';
+    color: #808080;
+}
+
+.logoutButton {
+    font-size: 4rem;
+    margin-right: 2rem;
+}
+
+.logoutButton:hover {
+    color: #16C290;
+    cursor: pointer;
+}

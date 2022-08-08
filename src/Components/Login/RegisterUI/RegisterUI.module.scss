@@ -1,6 +1,6 @@
 $emerald-green: #13C290;
 
-.loginUI{ 
+.registerUI{ 
     padding: 2rem;
     border-radius: 25px;
     background: white;
@@ -28,10 +28,16 @@ $emerald-green: #13C290;
     align-items: flex-end;
 }
 
+.forgotPassword,
 .registerAccount,
+.forgotPassword:hover,
 .registerAccount:hover {
     text-decoration: none;
     color: black;
+}
+
+.forgotPassword:hover {
+    color: $emerald-green;
 }
 
 .registerAccount:hover {
@@ -40,9 +46,4 @@ $emerald-green: #13C290;
 
 .registerAccount {
     font-weight: bold;
-}
-
-.noAccountText {
-    margin: 0;
-    font-style: italic;
 }

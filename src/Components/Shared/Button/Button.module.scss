@@ -3,12 +3,18 @@
   width: 125px;
 }
 
+.button:hover {
+  background: black!important;
+}
+
 .loginButton,
 .loginButton:focus {
   background: #13C290!important;
   border: #13C290!important;
 }
 
-.loginButton:hover {
-  background: black!important;
+.cancelButton,
+.cancelButton:focus {
+  background: #C44F4F!important;
+  border: #C44F4F!important;
 }
