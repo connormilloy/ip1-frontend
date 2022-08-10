@@ -47,6 +47,10 @@ const LoginUI = ({ handleMenuStateChange }) => {
             .catch(e => console.log(e))
     }
 
+    const validLoginFields = () => {
+        return loginInfo.email !== "" && loginInfo.password !== "";
+    }
+
     return(
         <div className={styles.loginUI}>
             <div className={styles.inputBoxes}>
@@ -68,6 +72,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
                     text={"Login"}
                     className={"greenButton"}
                     onClick={attemptLogin}
+                    disabled={!validLoginFields()}
                 />
                 <div className={styles.linksWrapper}>
                     <p className={styles.noAccountText}>No account?</p>
