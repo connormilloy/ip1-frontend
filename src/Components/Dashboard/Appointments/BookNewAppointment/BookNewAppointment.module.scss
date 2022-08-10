@@ -1,0 +1,40 @@
+.bookNewAppointment {
+    padding: 2rem;
+    width: 600px;
+    background: white;
+    margin: 2rem;
+    border-radius: 25px;
+    -webkit-box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35); 
+    box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35);
+}
+
+.bookingControls {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.buttonRow > button {
+    margin: .25rem 0;
+    height: 50px;
+}
+
+.salespersonSelect,
+.datePicker,
+.timePicker {
+    width: 350px!important;
+}
+
+.datePicker,
+.timePicker {
+    padding: .25rem;
+}
+
+.label {
+    margin: 1.5rem 0 .5rem 0;
+}

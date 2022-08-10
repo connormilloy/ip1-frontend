@@ -28,7 +28,8 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
                 }
             })
             .then(res => {
-                setAppointmentData(res.data);
+                const sorted = sortAppointments(res.data);
+                setAppointmentData(sorted);
                 setLoaded(true);
             })
             .catch(e => console.log(e))
@@ -37,17 +38,24 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
         getAppointments();
     }, [])
 
+    const sortAppointments = apts => {
+        const sorted = apts.sort((a, b) => a.hasPassed - b.hasPassed);
+        return sorted;
+    }
+
     return(
         <>
         {loaded &&
             <div className={styles.appointmentsTableWrapper}>
                 <div className={styles.appointmentsButtons}>
-                    <Button 
+                    {accountLevel == 1 &&
+                        <Button 
                         onClick={() => triggerModuleChange('book-new', 'Book a new appointment')} 
                         customWidth={"200"} 
                         className={"greenButton"} 
                         text={"Book New Appointment"} 
-                    />
+                        />
+                    }
                 </div>
                 <table className={styles.appointmentsTable}>
                     <thead>

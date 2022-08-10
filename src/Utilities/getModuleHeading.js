@@ -1,6 +1,6 @@
 export const getNewModuleHeading = module => {
     const headings = {
-        "view-all": "Showing all appointments",
+        "view-all": "Viewing all appointments",
         "book-new": "Booking a new appointment",
         "manage": "Managing an appointment"
     }

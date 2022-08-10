@@ -15,7 +15,7 @@ const Header = ({ moduleDescription }) => {
     return(
         <div className={styles.header}>
             <div className={styles.headerLeft}>
-                <img src={logo} className={styles.loytechLogo} />
+                <img src={logo} onClick={() => window.location.reload()} className={styles.loytechLogo} />
             </div>
             <div className={styles.headerRight}>
                 <div className={styles.headings}>
