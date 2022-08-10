@@ -8,6 +8,7 @@ import { getNewModuleHeading } from '../../Utilities/getModuleHeading';
 
 import AppointmentsTable from './Appointments/ViewAllAppointments/AppointmentsTable/AppointmentsTable';
 import BookNewAppointment from './Appointments/BookNewAppointment/BookNewAppointment';
+import ManageAppointment from './Appointments/ManageAppointment/ManageAppointment';
 
 // when module changes, update currentModule state
 // when detect state change, check login validity for redirect
@@ -48,6 +49,7 @@ const Dashboard = () => {
                     <>
                         {module === 'view-all' && <AppointmentsTable triggerModuleChange={triggerModuleChange} />}
                         {module === 'book-new' && <BookNewAppointment triggerModuleChange={triggerModuleChange} />}
+                        {module === 'manage' && <ManageAppointment triggerModuleChange={triggerModuleChange} />}
                     </>
                 </div>
             }

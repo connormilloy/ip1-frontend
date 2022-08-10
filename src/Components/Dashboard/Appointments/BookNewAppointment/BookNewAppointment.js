@@ -91,9 +91,12 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
         })
     }
 
-    const disableWeekends = date => {
-        //return moment(date).day() !== 0 && moment(date).day() !== 6;
-        return moment(date).day() !== 0;
+    const disableWeekendsAndPastDates = date => {
+        let acceptableDate = false;
+        if(moment(date).day() !== 0 && moment(date).day() !== 6) acceptableDate = true;
+        if(moment(date).isBefore()) acceptableDate = false;
+
+        return acceptableDate;
     }
 
     const handleDateSelect = date => {
@@ -161,8 +164,9 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
                 </Form.Select>
 
                 <Form.Label className={styles.label}>Date</Form.Label>
-                <ReactDatePicker 
-                    filterDate={disableWeekends} 
+                <ReactDatePicker
+                    onKeyDown={e => e.preventDefault()} 
+                    filterDate={disableWeekendsAndPastDates} 
                     dateFormat={"dd/MM/yyyy"} 
                     selected={selectedDate} 
                     onChange={date => handleDateSelect(date)}
@@ -171,6 +175,7 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
 
                 <Form.Label className={styles.label}>Time</Form.Label>
                 <ReactDatePicker 
+                    onKeyDown={e => e.preventDefault()}
                     onChange={time => handleTimeChange(time)}
                     popperPlacement="top-start"
                     excludeTimes={badTimes}

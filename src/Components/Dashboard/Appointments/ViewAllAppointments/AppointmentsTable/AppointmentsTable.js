@@ -7,6 +7,7 @@ import axios from 'axios';
 import Button from "../../../../Shared/Button/Button";
 
 import Appointment from "./Appointment/Appointment";
+import { setLocalStorage } from "../../../../../Utilities/handleLocalStorage";
 
 const AppointmentsTable = ({ triggerModuleChange }) => {
     const [appointmentData, setAppointmentData] = useState([]);
@@ -43,6 +44,11 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
         return sorted;
     }
 
+    const onOpenAppointment = appointment => {
+        setLocalStorage('selectedAppointment', JSON.stringify(appointment));
+        triggerModuleChange('manage');
+    }
+
     return(
         <>
         {loaded &&
@@ -57,20 +63,25 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
                         />
                     }
                 </div>
-                <table className={styles.appointmentsTable}>
-                    <thead>
-                        <tr>
-                            <th>{accountLevel == 1 ? 'Salesperson' : 'User'}</th>
-                            <th>Appointment Date</th>
-                            <th>Appointment Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {appointmentData.map((app, idx) => (
-                            <Appointment key={idx} apt={app} level={accountLevel} />
-                        ))}
-                    </tbody>
-                </table>
+                {appointmentData.length > 0 ?
+                    <table className={styles.appointmentsTable}>
+                        <thead>
+                            <tr>
+                                <th>{accountLevel == 1 ? 'Salesperson' : 'User'}</th>
+                                <th>Appointment Date</th>
+                                <th>Appointment Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {appointmentData.map((app, idx) => (
+                                <Appointment key={idx} apt={app} level={accountLevel} onClick={onOpenAppointment} />
+                            ))}
+                        </tbody>
+                    </table>
+                    :
+                    <h4 className={styles.noAppointments}><span className={styles.bold}>No appointments found!</span> Book one using the button above.</h4>
+            }
+
             </div>
         }
         </>

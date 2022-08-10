@@ -1,7 +1,7 @@
 import { Form } from 'react-bootstrap';
 import styles from './InputBox.module.scss';
 
-const InputBox = ({ placeholder, onChange, type, name, label }) => {
+const InputBox = ({ placeholder, onChange, type, name, label, disabled, defaultText }) => {
     return(
         <div className={styles.inputGroup}>
             {label && 
@@ -14,6 +14,8 @@ const InputBox = ({ placeholder, onChange, type, name, label }) => {
                 placeholder={placeholder}
                 onChange={e => onChange(e)}
                 id={name}
+                disabled={disabled}
+                value={defaultText}
             />
         </div>
     )

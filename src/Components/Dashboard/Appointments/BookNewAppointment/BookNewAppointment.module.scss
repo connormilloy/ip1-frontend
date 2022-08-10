@@ -1,6 +1,6 @@
 .bookNewAppointment {
     padding: 2rem;
-    width: 600px;
+    width: fit-content;
     background: white;
     margin: 2rem;
     border-radius: 25px;
@@ -21,7 +21,6 @@
 
 .buttonRow > button {
     margin: .25rem 0;
-    height: 50px;
 }
 
 .salespersonSelect,

@@ -25,12 +25,23 @@ const LoginUI = ({ handleMenuStateChange }) => {
     const attemptLogin = async () => {
         await axios.post('http://localhost:4000/accounts/login', loginInfo)
             .then(res => {
-                if(res.data.valid){
+                if(res.data?.valid){
                     setLocalStorage('email', loginInfo.email);
                     setLocalStorage('token', res.data.token);
                     setLocalStorage('userID', res.data.userID);
                     setLocalStorage('accountLevel', res.data.accountLevel);
                     navigate('/');
+                } else if (res.data == "NOACCOUNT") {
+                    alert('Account not found. Please check you have entered the correct email address or register below.');
+                } else if (res.data == "ACCOUNTLOCKED") {
+                    alert('This account has been locked for too many incorrect password attempts. Please contact an administrator to unlock it.')
+                } else {
+                    const incorrectAttempts = res.data?.loginAttempts;
+                    if(incorrectAttempts > 1){
+                        alert("Login failed. Please check that your username and password are correct. Your account will be locked after one more incorrect password attempt.")
+                    } else {
+                        alert("Login failed. Please check that your username and password are correct.");
+                    }
                 }
             })
             .catch(e => console.log(e))

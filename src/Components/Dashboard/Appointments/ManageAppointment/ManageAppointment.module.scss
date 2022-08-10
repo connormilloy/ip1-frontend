@@ -1,0 +1,26 @@
+.manageAppointment {
+    background: white;
+    width: fit-content;
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: 25px;
+    -webkit-box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35); 
+    box-shadow: 4px 4px 9px 0px rgba(0,0,0,0.35);
+}
+
+.appointmentStatus {
+    display: flex;
+    align-items: center;
+}
+
+.appointmentStatus span {
+    margin-right: .35rem;
+}
+
+.buttonRow {
+    margin-top: 2rem;
+}
+
+.buttonRow > button:not(:first-of-type) {
+    margin: 0 .45rem;
+}

@@ -5,6 +5,8 @@ import InputBox from '../../Shared/InputBox/InputBox';
 import Button from '../../Shared/Button/Button';
 import { Form } from 'react-bootstrap';
 
+import axios from 'axios';
+
 const LoginUI = ({ handleMenuStateChange }) => {
     const [registrationInfo, setRegistrationInfo] = useState({
         "name": "",
@@ -18,6 +20,19 @@ const LoginUI = ({ handleMenuStateChange }) => {
         setRegistrationInfo(prevState => {
             return {...prevState, [field]: e.target.value};
         })
+    }
+
+    const handleRegistration = async () => {
+        for(let [key, value] of Object.entries(registrationInfo)){
+            if(!value) return alert('Missing required fields. Please ensure you have entered your information correctly and try again.');
+        }
+
+        await axios.post('http://localhost:4000/accounts/new-account', registrationInfo)
+            .then(res => {
+                alert(res.data.message);
+                if(res.data.success) handleMenuStateChange('login');
+            })
+            .catch(e => console.log(e))
     }
 
     return(
@@ -49,7 +64,8 @@ const LoginUI = ({ handleMenuStateChange }) => {
                 />
                 <div className={styles.companyCategorySelect}>
                     <Form.Label>Company Category</Form.Label>
-                    <Form.Select className={styles.companyCategory} onChange={e => handleFieldChange(e, 'companyCategory')}>
+                    <Form.Select defaultValue={""} className={styles.companyCategory} onChange={e => handleFieldChange(e, 'companyCategory')}>
+                        <option disabled value="">Select a category...</option>
                         <option value="Food and Drink">Food and Drink</option>
                         <option value="Fashion and Accessories">Fashion and Accessories</option>
                         <option value="Beauty and Grooming">Beauty and Grooming</option>
@@ -61,6 +77,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
                 <Button
                     text={"Register"}
                     className={"loginButton"}
+                    onClick={() => handleRegistration()}
                 />
                 <Button
                     text={"Cancel"}
