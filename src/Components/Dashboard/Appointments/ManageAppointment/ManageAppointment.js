@@ -37,6 +37,8 @@ const ManageAppointment = ({ triggerModuleChange }) => {
     return(
         <div className={styles.manageAppointment}>
             <div className={styles.appointmentFields}>
+                <InputBox label={"User"} disabled={true} defaultText={appointment.User} />
+                <InputBox label={"Company"} disabled={true} defaultText={appointment.Company} />
                 <InputBox label={"Salesperson"} disabled={true} defaultText={appointment.Salesperson} />
                 <InputBox label={"Date/Time"} disabled={true} defaultText={appointment.Appointment} />
                 <div className={styles.appointmentStatus}>

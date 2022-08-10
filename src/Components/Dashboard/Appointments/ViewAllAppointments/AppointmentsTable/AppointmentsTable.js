@@ -68,6 +68,7 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
                         <thead>
                             <tr>
                                 <th>{accountLevel == 1 ? 'Salesperson' : 'User'}</th>
+                                {accountLevel == 2 && <th>Company</th>}
                                 <th>Appointment Date</th>
                                 <th>Appointment Status</th>
                             </tr>
@@ -79,7 +80,7 @@ const AppointmentsTable = ({ triggerModuleChange }) => {
                         </tbody>
                     </table>
                     :
-                    <h4 className={styles.noAppointments}><span className={styles.bold}>No appointments found!</span> Book one using the button above.</h4>
+                    <h4 className={styles.noAppointments}><span className={styles.bold}>No appointments found.</span> {accountLevel == 1 && 'Book one using the button above.'}</h4>
             }
 
             </div>

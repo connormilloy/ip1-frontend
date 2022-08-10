@@ -58,7 +58,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
                 />
                 <InputBox
                     name={"login-password"}
-                    type={"email"}
+                    type={"password"}
                     onChange={e => handleFieldChange(e, 'password')}
                     label={"Password"}
                 />
