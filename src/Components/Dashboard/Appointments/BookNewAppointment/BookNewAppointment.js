@@ -52,8 +52,8 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
 
     useEffect(() => {
         const formatDateTimeObject = dt => {
-            const dtSplit = dt.split(' ');
-            return {'date': moment(dtSplit[0]).format("MM/DD/YYYY"), 'time': dtSplit[1]};
+            const dtSplit = dt.split('T');
+            return {'date': moment(dtSplit[0]).format("DD/MM/YYYY"), 'time': dtSplit[1]};
         }
 
         const getAppointmentsByID = async () => {
