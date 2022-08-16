@@ -4,11 +4,13 @@ import './App.scss';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Render the application
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
+          {/* If the URL path is /, render the dashboard, else render the login screen */}
           <Route path='/' element={ <Dashboard /> } />
           <Route path='/login' element={ <Login /> } />
         </Routes>

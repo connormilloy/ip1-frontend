@@ -3,6 +3,8 @@ import StatusLozenge from './StatusLozenge/StatusLozenge';
 import moment from 'moment';
 
 const Appointment = ({ apt, level, onClick }) => {
+
+    // Format the date/time of the appointment to DD/MM/YYYY format
     const formatAppointment = dt => {
         return moment(dt).format("DD/MM/YYYY HH:mm:ss");
     }

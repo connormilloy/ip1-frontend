@@ -9,6 +9,7 @@ import { useState } from 'react';
 const Login = () => {
     const [menuState, setMenuState] = useState('login');
 
+    // Set the menu state (either 'login' or 'register') and cause the correct menu to render
     const handleMenuStateChange = newState => {
         setMenuState(newState);
     }

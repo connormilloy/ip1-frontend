@@ -16,13 +16,16 @@ const LoginUI = ({ handleMenuStateChange }) => {
         "companyCategory": ""
     })
 
+    // Whenever a form field is changed, set the resgistrationInfo's respective key to the new value
     const handleFieldChange = (e, field) => {
         setRegistrationInfo(prevState => {
             return {...prevState, [field]: e.target.value};
         })
     }
 
+    // Handle a new account registration
     const handleRegistration = async () => {
+        // If any values in registrationInfo are blank, cancel the form and alert the user
         for(let [key, value] of Object.entries(registrationInfo)){
             if(!value) return alert('Missing required fields. Please ensure you have entered your information correctly and try again.');
         }
@@ -30,6 +33,7 @@ const LoginUI = ({ handleMenuStateChange }) => {
         await axios.post('http://localhost:4000/accounts/new-account', registrationInfo)
             .then(res => {
                 alert(res.data.message);
+                // Redirect the user to the login screen after successfully creating an account
                 if(res.data.success) handleMenuStateChange('login');
             })
             .catch(e => console.log(e))

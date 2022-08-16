@@ -7,6 +7,7 @@ import { handleLogout } from '../../../Utilities/validateSession';
 const Header = ({ moduleDescription }) => {
     const navigate = useNavigate();
 
+    // Log the user out using the handleLogout() function and redirect to the login screen
     const logOff = () => {
         handleLogout()
             .then(() => navigate('/login'));

@@ -10,9 +10,6 @@ import AppointmentsTable from './Appointments/ViewAllAppointments/AppointmentsTa
 import BookNewAppointment from './Appointments/BookNewAppointment/BookNewAppointment';
 import ManageAppointment from './Appointments/ManageAppointment/ManageAppointment';
 
-// when module changes, update currentModule state
-// when detect state change, check login validity for redirect
-
 const Dashboard = () => {
     const navigate = useNavigate();
     const [moduleDescription, setModuleDescription] = useState('');
@@ -20,10 +17,14 @@ const Dashboard = () => {
     const [module, setModule] = useState('view-all');
 
     useEffect(() => {
+        // When the dashboard loads, set the module description (grey subheading in the header)
+        // This will invoke a new validation check against the user's session as the other useEffect is listening for changes to this state variable
         setModuleDescription('Viewing all appointments');
     }, [])
 
     useEffect(() => {
+        // Validate the user's session and set the state accordingly
+        // If the session is invalid, redirect to /login
         validateSession()
             .then(isValid => {
                 if(isValid){
@@ -36,6 +37,8 @@ const Dashboard = () => {
             .catch(e => console.log(e))
     }, [moduleDescription])
 
+    // Set the module state variable based on what the user navigates to
+    // Whatever the module variable is set to will determine what section of the app renders
     const triggerModuleChange = (module) => {
         setModule(module);
         setModuleDescription(getNewModuleHeading(module));
