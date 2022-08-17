@@ -13,7 +13,7 @@ import styles from './BookNewAppointment.module.scss';
 import Button from '../../../Shared/Button/Button';
 import InputBox from '../../../Shared/InputBox/InputBox';
 import { Form } from 'react-bootstrap';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 //  placeholder, onChange, type, name, label
 const BookNewAppointment = ({ triggerModuleChange })  => {
@@ -57,7 +57,8 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
     useEffect(() => {
         // Format the date/time of each date in the date picker
         const formatDateTimeObject = dt => {
-            const dtSplit = dt.split('T');
+            const fixedDT = moment(dt).add(1, 'hour').toISOString();
+            const dtSplit = fixedDT.split('T');
             return {'date': moment(dtSplit[0]).format("DD/MM/YYYY"), 'time': dtSplit[1]};
         }
 
@@ -111,6 +112,7 @@ const BookNewAppointment = ({ triggerModuleChange })  => {
         for(let app of salespersonExistingAppointments){
             if(app['date'] == moment(date).format("DD/MM/YYYY")){
                 const split = app['time'].split(':');
+                console.log(split);
                 badTimesArr.push(new Date(0, 0, 0, split[0], split[1]));
             };
         }
